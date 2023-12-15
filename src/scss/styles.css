@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif, FontAwesome;
+}
+
+/* Color Palette */
+body {
+  background-color: #011936;
+}
+body .navMenu {
+  text-align: center;
+  padding: 0.5rem;
+}
+body .navMenu .active {
+  color: #ED254E;
+  text-shadow: 0px 0px 8px rgb(237, 37, 78);
+}
+body .navMenu a {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0 1em;
+  border-right: 2px dotted #ED254E;
+  transition: all 0.2s ease-in-out;
+}
+body .navMenu a:last-child {
+  border-right: 0;
+}
+body .navMenu a:hover {
+  color: #ED254E;
+}
+body .container, body .effect-options, body .effect-preview, body .effect-code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+body .container {
+  min-height: 90vh;
+}
+body .container .card-container {
+  width: auto;
+  max-width: 650px;
+  min-width: 450px;
+  height: auto;
+  padding: 1em;
+  text-align: center;
+  background-color: #C2EABD;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 5px #465362;
+}
+body .container .card-container #title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #011936;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+body .container .card-container span {
+  cursor: default;
+}
+body .container .card-container .effect-options {
+  margin: 5px 0;
+}
+body .container .card-container .effect-options .column {
+  width: 50%;
+  height: 135px;
+  padding: 5px;
+  border: 2px solid #011936;
+  background-color: #ED254E;
+  color: white;
+}
+body .container .card-container .effect-options .column:first-child {
+  border-radius: 5px 0 0 5px;
+  border-right: 0;
+}
+body .container .card-container .effect-options .column:last-child {
+  border-radius: 0 5px 5px 0;
+  border-left: 2px dotted #011936;
+}
+body .container .card-container .effect-options .column .input-group {
+  justify-content: center;
+  margin-bottom: 5px;
+}
+body .container .card-container .effect-options .column .input-group:nth-child(2), body .container .card-container .effect-options .column .input-group:nth-child(4) {
+  border-top: 2px dotted #011936;
+  margin-top: 10px;
+}
+body .container .card-container .effect-options .column .input-group label {
+  width: 100%;
+  display: inline-block;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+body .container .card-container .effect-options .column .input-group input::-webkit-outer-spin-button, body .container .card-container .effect-options .column .input-group input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+body .container .card-container .effect-options .column .input-group input[type=number] {
+  width: 25px;
+  height: 25px;
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: textfield;
+  text-align: center;
+  font-size: 9px;
+  border: 0;
+  margin: 0 !important;
+  border-radius: 5px !important;
+}
+body .container .card-container .effect-options .column .input-group span {
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 12px;
+  line-height: 2;
+  margin-left: 5px !important;
+}
+body .container .card-container .effect-options .column .input-group .form-range {
+  width: 70%;
+  height: 25px;
+  cursor: pointer;
+  margin-right: 5px !important;
+}
+body .container .card-container .effect-options .column .input-group input[type=color] {
+  width: 75%;
+  height: 25px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 0;
+  margin-top: 5px;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.25s;
+}
+body .container .card-container .effect-options .column .input-group input[type=color]:hover {
+  scale: 1.05;
+}
+body .container .card-container .effect-options .column .input-group input[type=color]::-webkit-color-swatch {
+  border-radius: 5px;
+  border: 1px solid white;
+}
+body .container .card-container .effect-options .column .input-group input[type=color]::-moz-color-swatch {
+  border-radius: 5px;
+  border: 1px solid white;
+}
+body .container .card-container .effect-preview {
+  position: relative;
+  z-index: 10;
+  margin: 15px 0;
+}
+body .container .card-container .effect-preview span {
+  position: absolute;
+  font-size: 45px;
+  letter-spacing: 2px;
+  color: #011936;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  opacity: 0.85;
+}
+body .container .card-container .effect-preview .preview {
+  width: 80%;
+  height: 135px;
+  position: relative;
+  background-color: #F9DC5C;
+  border-radius: 5px;
+  margin: auto;
+  box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+}
+body .container .card-container .effect-code {
+  flex-wrap: nowrap;
+}
+body .container .card-container .effect-code .form-floating {
+  width: 100%;
+}
+body .container .card-container .effect-code .form-floating textarea {
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 110px;
+  border: 2px solid #011936;
+  border-radius: 5px;
+  cursor: copy;
+  font-size: 14px;
+  color: #011936;
+}
+body .container .card-container .effect-code .form-floating textarea::-moz-selection {
+  background-color: #F9DC5C;
+}
+body .container .card-container .effect-code .form-floating textarea::selection {
+  background-color: #F9DC5C;
+}
+body .container .card-container .effect-code .form-floating label {
+  font-size: 14px;
+}
+body .container .card-container .effect-code button {
+  background-color: #ED254E;
+  margin-left: 5px;
+  transition: 0.25s;
+}
+body .container .card-container .effect-code button:hover {
+  background-color: var(--bs-btn-hover-bg);
+  scale: 1.05;
+}/*# sourceMappingURL=styles.css.map */
