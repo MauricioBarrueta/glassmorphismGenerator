@@ -46,7 +46,7 @@ body .container {
 body .container .card-container {
   width: auto;
   max-width: 650px;
-  min-width: 450px;
+  min-width: 425px;
   height: auto;
   padding: 1em;
   text-align: center;
@@ -66,22 +66,23 @@ body .container .card-container span {
   cursor: default;
 }
 body .container .card-container .effect-options {
-  margin: 5px 0;
+  margin: 5px 0 auto;
 }
 body .container .card-container .effect-options .column {
   width: 50%;
   height: 135px;
   padding: 5px;
   border: 2px solid #011936;
+  border-bottom-style: dotted;
   background-color: #ED254E;
   color: white;
 }
 body .container .card-container .effect-options .column:first-child {
-  border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 0;
   border-right: 0;
 }
 body .container .card-container .effect-options .column:last-child {
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 0 0;
   border-left: 2px dotted #011936;
 }
 body .container .card-container .effect-options .column .input-group {
@@ -128,7 +129,7 @@ body .container .card-container .effect-options .column .input-group .form-range
   margin-right: 5px !important;
 }
 body .container .card-container .effect-options .column .input-group input[type=color] {
-  width: 75%;
+  width: 70%;
   height: 25px;
   appearance: none;
   -webkit-appearance: none;
@@ -150,6 +151,21 @@ body .container .card-container .effect-options .column .input-group input[type=
   border-radius: 5px;
   border: 1px solid white;
 }
+body .container .card-container .reset-container {
+  background-color: #ED254E;
+  border: 2px solid #011936;
+  border-top: 0;
+  border-radius: 0 0 5px 5px;
+  padding: 5px;
+}
+body .container .card-container .reset-container .reset-btn {
+  background-color: #465362;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+body .container .card-container .reset-container .reset-btn:hover {
+  background-color: #000;
+}
 body .container .card-container .effect-preview {
   position: relative;
   z-index: 10;
@@ -157,13 +173,12 @@ body .container .card-container .effect-preview {
 }
 body .container .card-container .effect-preview span {
   position: absolute;
-  font-size: 45px;
-  letter-spacing: 2px;
+  font-size: 50px;
+  letter-spacing: 3px;
   color: #011936;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  opacity: 0.85;
 }
 body .container .card-container .effect-preview .preview {
   width: 80%;

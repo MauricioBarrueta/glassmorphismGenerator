@@ -25,7 +25,7 @@
 
     <div class="container">
         <div class="card-container">
-            <span id="title">Personaliza los valores para crear el efecto 'Glassmorphism':</span>
+            <span id="title">Personaliza los valores para crear el efecto Glassmorphism:</span>
             <div class="effect-options">
                 <div class="column">
                     <div class="input-group">
@@ -34,7 +34,7 @@
                         <input type="number" id="blurVal" min="0" max="35" value="5" oninput="blurRange.value=blurVal.value"><span>px</span>
                     </div> 
                     <div class="input-group">
-                        <label for="bgColor" class="form-label">Background Color:</label>
+                        <label for="bgColor" class="form-label">Background:</label>
                         <input type="color" id="bgColor" value="#F9DC5C">
                     </div>                     
                 </div>
@@ -51,9 +51,10 @@
                     </div>  
                 </div>
             </div>
+            <div class="reset-container"><button class="btn btn-dark reset-btn" onclick="resetValues(), generateEffect()">Restablecer valores &#xf2f9;</button></div>
 
             <div class="effect-preview">
-                <span>Glassmorphism Generator</span>
+                <span>Vista previa del efecto</span>
                 <div class="preview"></div>
             </div>
 
