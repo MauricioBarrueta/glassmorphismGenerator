@@ -1,9 +1,6 @@
-const blurRange = document.getElementById('blurRange'), blurValue = document.getElementById('blurVal'),
-    outlineRange = document.getElementById('outlineRange'), outlineValue = document.getElementById('outlineVal'),
-    opacityRange = document.getElementById('opacityRange'), opacityValue = document.getElementById('opacityVal'),
-    bgColor = document.getElementById('bgColor')
-const effectPreview = document.querySelector('.preview'), effectOptions = document.querySelectorAll('.effect-options input'),
-    effectCssCode = document.getElementById('css-code')
+const blurRange = document.getElementById('blurRange'), blurValue = document.getElementById('blurVal'), outlineRange = document.getElementById('outlineRange'), outlineValue = document.getElementById('outlineVal'),
+    opacityRange = document.getElementById('opacityRange'), opacityValue = document.getElementById('opacityVal'), bgColor = document.getElementById('bgColor')
+const effectPreview = document.querySelector('.preview'), effectOptions = document.querySelectorAll('.effect-options input'), effectCssCode = document.getElementById('css-code')
 
 window.onload = () => {
     resetValues()
@@ -23,14 +20,12 @@ const generateEffect = () => {
     effectPreview.style.backdropFilter = blurCode
     effectPreview.style.background = bgColorCode
     effectPreview.style.outline = borderCode
-    effectCssCode.textContent = `${blurCode != '' ? (`backdrop-filter: ${blurCode};\n-webkit-backdrop-filter: ${blurCode};`) : ''}${borderCode != '' ? `\noutline: ${borderCode};` : ''}\nbackground-color: ${bgColorCode};`
+    effectCssCode.textContent = `${blurCode != '' ? (`backdrop-filter: ${blurCode};\t-webkit-backdrop-filter: ${blurCode};`) : ''}${borderCode != '' ? `\noutline: ${borderCode};` : ''}\nbackground-color: ${bgColorCode};\n\nbox-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 1); /* propiedad opcional */`
 }
 
 /* Transforma el color hexadecimal al modelo RGB */
 const hexColorToRgba = (color, alpha) => {
-    const r = parseInt(color.substr(1, 2), 16)
-    const g = parseInt(color.substr(3, 2), 16)
-    const b = parseInt(color.substr(5, 2), 16)
+    const r = parseInt(color.substr(1, 2), 16), g = parseInt(color.substr(3, 2), 16), b = parseInt(color.substr(5, 2), 16)
     return `rgba(${r}, ${g}, ${b}, ${alpha})`
 }
 
