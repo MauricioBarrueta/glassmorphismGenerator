@@ -20,7 +20,7 @@ const generateEffect = () => {
     effectPreview.style.backdropFilter = blurCode
     effectPreview.style.background = bgColorCode
     effectPreview.style.outline = borderCode
-    effectCssCode.textContent = `${blurCode != '' ? (`backdrop-filter: ${blurCode};\t-webkit-backdrop-filter: ${blurCode};`) : ''}${borderCode != '' ? `\noutline: ${borderCode};` : ''}\nbackground-color: ${bgColorCode};\n\nbox-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 1); /* propiedad opcional */`
+    effectCssCode.textContent = `${blurCode != '' ? (`backdrop-filter: ${blurCode}; -webkit-backdrop-filter: ${blurCode};`) : ''}${borderCode != '' ? `\noutline: ${borderCode};` : ''}\nbackground-color: ${bgColorCode};\n\nbox-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 1); /* opcional */`
 }
 
 /* Transforma el color hexadecimal al modelo RGB */

@@ -44,9 +44,8 @@ body .container {
   min-height: 90vh;
 }
 body .container .card-container {
-  width: auto;
-  max-width: 650px;
-  min-width: 425px;
+  width: 650px;
+  min-width: 450px;
   height: auto;
   padding: 1em;
   text-align: center;
@@ -129,7 +128,7 @@ body .container .card-container .effect-options .column .input-group .form-range
   margin-right: 5px !important;
 }
 body .container .card-container .effect-options .column .input-group input[type=color] {
-  width: 70%;
+  width: 50px;
   height: 25px;
   appearance: none;
   -webkit-appearance: none;
@@ -196,9 +195,7 @@ body .container .card-container .effect-code .form-floating {
   width: 100%;
 }
 body .container .card-container .effect-code .form-floating textarea {
-  height: -moz-fit-content;
-  height: fit-content;
-  min-height: 110px;
+  height: 120px;
   border: 2px solid #011936;
   border-radius: 5px;
   cursor: copy;
