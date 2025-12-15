@@ -1,8 +1,7 @@
-🇲🇽 Este sitio web permite personalizar los valores de las propiedades CSS necesarias para crear el efecto 'Glassmorphism', al mismo tiempo que se muestra la vista previa del mismo y el código CSS para poder copiarlo.
+🇲🇽 Sitio web desarrollado con JavaScript, SCSS y Bootstrap, publicado mediante GitHub Pages.
 
-🇺🇸 This website allows you to customize the values ​​of the CSS properties needed to create the 'Glassmorphism' effect, while also displaying a preview of the effect and the CSS code so you can copy it. 
+🇺🇸 Website developed with JavaScript, SCSS and Bootstrap, published via GitHub Pages.
 
 🔗 https://mauriciobarrueta.github.io/glassmorphismGenerator/
 
-
-![glassmorphismEffect](https://github.com/user-attachments/assets/4270ae7c-280a-415a-953c-ead84786502f)
+![glassmorphism](https://github.com/user-attachments/assets/cb875cac-52e7-41fa-b2c9-69912cff54c9)
