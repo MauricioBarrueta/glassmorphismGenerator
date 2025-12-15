@@ -27,9 +27,9 @@ body {
         display: flex; align-items: center; justify-content: center; flex-wrap: wrap; flex-direction: row;
     }
     .container {
-        min-height: 90vh;
+        min-height: 93vh; padding: 1em;
         .card-container {
-            width: 650px; min-width: 450px; height: auto;
+            width: 675px; height: auto;
             padding: 1em; text-align: center;       
             background-color: $teaGreen; border-radius: 10px; box-shadow: 0px 0px 5px 5px $Charcoal;
 
@@ -40,78 +40,98 @@ body {
             span { cursor: default; }
 
             .effect-options {
+                flex-direction: row; 
                 margin: 5px 0 auto;
+
                 .column {
-                    width: 50%; height: 135px; 
-                    padding: 5px; border: 2px solid $oxfordBlue; border-bottom-style: dotted;
-                    background-color: $redCrayola; color: white;
+                    width: 50%; height: 188.5px;
+                    padding: 1em 0.5rem 0.5rem 0.5rem; border: 2px solid $oxfordBlue; border-bottom: 0; 
+                    background-color: $redCrayola; color: white; 
+                    
                     &:first-child { border-radius: 5px 0 0 0; border-right: 0; }
                     &:last-child { border-radius: 0 5px 0 0; border-left: 2px dotted $oxfordBlue; }
 
                     .input-group {                         
-                        justify-content: center;      
-                        margin-bottom: 5px; 
-                        &:nth-child(2), &:nth-child(4) { border-top: 2px dotted $oxfordBlue; margin-top: 10px; }
-                        label {
-                            width: 100%; display: inline-block;
-                            font-size: 15px; margin-bottom: 0;
-                        }       
+                        height: 47.5px;
+                        display: flex; flex-direction: column; justify-content: center; flex-wrap: nowrap; margin-bottom: 5px; 
+
+                        label { width: 100%; font-size: 15px; margin-bottom: 0; }      
+                        small, .fa-arrows-up-down { 
+                            font-size: 9px; color: $naplesYellow; 
+                            margin: 6px 0 0 8px !important; cursor: help;
+                        }
+
                         input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
                         input[type = number] {
                             width: 25px; height: 25px;
                             appearance: none; -moz-appearance: textfield;
                             text-align: center; font-size: 9px;
                             border: 0; margin: 0 !important; border-radius: 5px !important;
-                        }        
-                        span {
-                            width: fit-content;
-                            font-size: 12px; line-height: 2;
-                            margin-left: 5px !important;
-                        }
+                        }  
+
+                        .input-row { display: flex; align-items: center; width: 100%; gap: 5px; }
                         .form-range {
-                            width: 70%; height: 25px; cursor: pointer;
-                            margin-right: 5px !important;                                             
+                            flex: 1; height: 25px; cursor: pointer;                                             
                         }
+
                         input[type = color] {  
                             width: 50px; height: 25px;                           
-                            appearance: none; -webkit-appearance: none; -moz-appearance: none;
                             border: 0; margin-top: 5px; background: transparent; cursor: pointer; transition: 0.25s;
                             &:hover { scale: 1.05; }
-                            &::-webkit-color-swatch { border-radius: 5px; border: 1px solid white; }
-                            &::-moz-color-swatch { border-radius: 5px; border: 1px solid white; }
+                            &::-webkit-color-swatch { border-radius: 5px; border: 1px solid $oxfordBlue; }
+                            &::-moz-color-swatch { border-radius: 5px; border: 1px solid $oxfordBlue; }
                         }
-                    }                    
+
+                        span { font-size: 10px; line-height: 2; }                        
+                    }        
+                    
+                    .bg-value {
+                        flex-direction: row; align-items: center; flex-wrap: nowrap;
+                        label { width: fit-content; margin-right: 10px; margin-top: 3px; }
+                    }     
+                    .bs {
+                        flex-wrap: wrap; height: 52.5px;
+                        label { margin-right: 0; margin-bottom: 5px; }
+                        .shadow-values { 
+                            display: flex; justify-content: center; align-items: center; gap: 8px; 
+                            i { margin: 0 !important; }
+                        }
+                    }               
                 }
             }
+
             .reset-container {
-                background-color: $redCrayola; border: 2px solid $oxfordBlue; border-top: 0; 
+                background-color: $redCrayola; border: 2px solid $oxfordBlue; border-top-style: dotted; 
                 border-radius: 0 0 5px 5px; padding: 5px;
                 .reset-btn {
                     background-color: $Charcoal; padding: 5px 10px;
                     font-size: 12px;
                     &:hover { background-color: #000; }
+                    i { font-size: 10px; }
                 }
             }
+
             .effect-preview {
                 position: relative; z-index: 10;
-                margin: 15px 0;
+                margin: 10px 0;
                 span { 
                     position: absolute; 
-                    font-size: 50px; letter-spacing: 3px;
-                    color: $oxfordBlue; user-select: none;
+                    font-size: 40px; letter-spacing: 1px;
+                    color: $oxfordBlue; user-select: none; opacity: .5;
                 }
                 .preview {
-                    width: 80%; height: 135px; position: relative;
+                    width: 115px; height: 115px; position: relative;
                     background-color: $naplesYellow; border-radius: 5px; margin: auto;
                     box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 1);
                 }
             }
+
             .effect-code {
                 flex-wrap: nowrap;
                 .form-floating {
                     width: 100%;
                     textarea {
-                        height: 120px;
+                        height: 130px;
                         border: 2px solid $oxfordBlue; border-radius: 5px; cursor: copy;
                         font-size: 14px; color: $oxfordBlue;
                         &::selection { background-color: $naplesYellow; }

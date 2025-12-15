@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="src/scss/styles.css">
     <title>Style Generator: Glassmorphism Effect</title>
     <link rel="icon" type="image/x-icon" href="src/img/favicon.ico">
@@ -16,45 +16,74 @@
         <a href="https://mauriciobarrueta.github.io/textShadowGenerator/">Text Shadow</a>
         <a href="https://mauriciobarrueta.github.io/borderGenerator/">Border</a>
         <a href="https://mauriciobarrueta.github.io/borderRadiusGenerator/">Border Radius</a>
-        <a href="https://mauriciobarrueta.github.io/transformGenerator/">CSS Transform</a>
-        <a href="https://mauriciobarrueta.github.io/filterGenerator/">Image Filter</a>
-        <a href="https://mauriciobarrueta.github.io/gradientBgGenerator/">CSS Gradient</a>
-        <a href="https://mauriciobarrueta.github.io/rgbaHexGenerator/">Color Picker</a>
+        <a href="https://mauriciobarrueta.github.io/transformGenerator/">Transform</a>
+        <a href="https://mauriciobarrueta.github.io/filterGenerator/">Filter</a>
+        <a href="https://mauriciobarrueta.github.io/gradientBgGenerator/">Gradient</a>
+        <a href="https://mauriciobarrueta.github.io/rgbaHexGenerator/">Color</a>
         <a class="active">Glassmorphism</a>
       </nav>
 
     <div class="container">
         <div class="card-container">
-            <span id="title">Personaliza los valores para crear el efecto Glassmorphism:</span>
+            <span id="title">Personaliza los valores del efecto glassmorphism:</span>
             <div class="effect-options">
                 <div class="column">
                     <div class="input-group">
-                        <label for="blurRange" class="form-label">Blur:</label>
-                        <input type="range" class="form-range" min="0" max="35" step="1" value="5" id="blurRange" oninput="blurVal.value=blurRange.value">
-                        <input type="number" id="blurVal" min="0" max="35" value="5" oninput="blurRange.value=blurVal.value"><span>px</span>
+                        <label for="blurRange" class="form-label">blur</label>
+                        <div class="input-row">
+                            <input type="range" class="form-range" min="0" max="35" step="1" value="5" id="blurRange" oninput="blurVal.value=blurRange.value">
+                            <input type="number" id="blurVal" min="0" max="35" value="5" oninput="blurRange.value=blurVal.value"><span>px</span>
+                        </div>                        
                     </div> 
-                    <div class="input-group">
-                        <label for="bgColor" class="form-label">Background:</label> 
+                    <div class="input-group bg-value">
+                        <label for="bgColor" class="form-label">background</label> 
                         <input type="color" id="bgColor" value="#F9DC5C">
-                    </div>                     
+                    </div>       
+                    <div class="input-group bg-value bs">
+                        <label class="form-label">box-shadow<small title="Opcional">&#xf05a;</small></label>
+                        <div class="shadow-values">
+                            <i class="fa-solid fa-arrows-up-down m-0" title="Usa las teclas ↑↓"></i>
+                            <input type="number" id="hShadow" min="-100" max="100" step="1" title="Horizontal">
+                            <input type="number" id="vShadow" min="-100" max="100" step="1" title="Vertical">
+                            <input type="number" id="bShadow" min="0" max="100" step="1" title="Blur">
+                            <input type="number" id="sShadow" min="0" max="100" step="1" title="Spread">
+                            <span>px</span>
+                            <input type="color" id="dsColor" value="#000000" class="mt-0">
+                            <input type="number" id="oShadow" min="0" max="1" step="0.1" title="Opacidad"><span>num.</span>
+                        </div>
+                    </div>               
                 </div>
                 <div class="column">
                     <div class="input-group">
-                        <label for="outlineRange" class="form-label">Outline:</label>
-                        <input type="range" class="form-range" min="0" max="20" step="1" value="0" id="outlineRange" oninput="outlineVal.value=outlineRange.value">
-                        <input type="number" id="outlineVal" min="0" max="20" value="0" step="0" oninput="outlineRange.value=outlineVal.value"><span>px</span>
+                        <label for="outlineRange" class="form-label">border<small title="Opcional">&#xf05a;</small></label>
+                        <div class="input-row">
+                            <input type="range" class="form-range" min="0" max="35" step="1" value="0" id="outlineRange" oninput="outlineVal.value=outlineRange.value">
+                            <input type="number" id="outlineVal" min="0" max="35" value="0" step="1" oninput="outlineRange.value=outlineVal.value"><span>px</span>
+                            <input class="mt-0" type="color" id="borderColor" value="#F9DC5C">
+                        </div>                        
                     </div> 
                     <div class="input-group">
-                        <label for="opacityRange" class="form-label">Opacity:</label>
-                        <input type="range" class="form-range" min="0" max="1" step="0.05" value="0" id="opacityRange" oninput="opacityVal.value=opacityRange.value">
-                        <input type="number" id="opacityVal" min="0" max="1" value="0" step="0.05" oninput="opacityRange.value=opacityVal.value"><span>px</span>
+                        <label for="opacityRange" class="form-label">opacity</label>
+                        <div class="input-row">
+                            <input type="range" class="form-range" min="0" max="1" step="0.05" value="0" id="opacityRange" oninput="opacityVal.value=opacityRange.value">
+                            <input type="number" id="opacityVal" min="0" max="1" value="0" step="0.05" oninput="opacityRange.value=opacityVal.value"><span>px</span>
+                        </div>                        
                     </div>  
+                    <div class="input-group">
+                        <label for="radiusRange" class="form-label">border-radius<small title="Opcional">&#xf05a;</small></label>
+                        <div class="input-row">
+                            <input type="range" class="form-range" min="0" max="50" step="1" value="0" id="radiusRange" oninput="radiusVal.value=radiusRange.value">
+                            <input type="number" id="radiusVal" min="0" max="50" value="0" step="1" oninput="radiusRange.value=radiusVal.value"><span>%</span>
+                        </div>                        
+                    </div>
                 </div>
             </div>
-            <div class="reset-container"><button class="btn btn-dark reset-btn" onclick="resetValues(), generateEffect()">Restablecer valores &#xf2f9;</button></div>
+            <div class="reset-container">
+                <button class="btn btn-dark reset-btn" onclick="resetValues(), generateEffect()">Restablecer valores &nbsp;<i class="fa-solid fa-arrow-rotate-right"></i></button>
+            </div>
 
             <div class="effect-preview">
-                <span>Vista previa del efecto</span>
+                <span>Vista previa</span>
                 <div class="preview"></div>
             </div>
 
@@ -63,12 +92,12 @@
                     <textarea class="form-control" placeholder="Leave a comment here" id="css-code"></textarea>
                     <label for="bs-code">El código CSS se genera automáticamente:</label>
                 </div>
-                <button class="btn btn-danger copy-btn" title="Copiar código">&#xf0c5;</button>
+                <button class="btn btn-danger copy-btn" title="Copiar">&#xf0c5;</button>
             </div>
         </div>
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>     
     <script src="src/js/main.js"></script>
 </body>
 </html>
