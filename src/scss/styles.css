@@ -41,11 +41,11 @@ body .container, body .effect-options, body .effect-preview, body .effect-code {
   flex-direction: row;
 }
 body .container {
-  min-height: 90vh;
+  min-height: 93vh;
+  padding: 1em;
 }
 body .container .card-container {
-  width: 650px;
-  min-width: 450px;
+  width: 675px;
   height: auto;
   padding: 1em;
   text-align: center;
@@ -65,14 +65,15 @@ body .container .card-container span {
   cursor: default;
 }
 body .container .card-container .effect-options {
+  flex-direction: row;
   margin: 5px 0 auto;
 }
 body .container .card-container .effect-options .column {
   width: 50%;
-  height: 135px;
-  padding: 5px;
+  height: 188.5px;
+  padding: 1em 0.5rem 0.5rem 0.5rem;
   border: 2px solid #011936;
-  border-bottom-style: dotted;
+  border-bottom: 0;
   background-color: #ED254E;
   color: white;
 }
@@ -85,18 +86,23 @@ body .container .card-container .effect-options .column:last-child {
   border-left: 2px dotted #011936;
 }
 body .container .card-container .effect-options .column .input-group {
+  height: 47.5px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  flex-wrap: nowrap;
   margin-bottom: 5px;
-}
-body .container .card-container .effect-options .column .input-group:nth-child(2), body .container .card-container .effect-options .column .input-group:nth-child(4) {
-  border-top: 2px dotted #011936;
-  margin-top: 10px;
 }
 body .container .card-container .effect-options .column .input-group label {
   width: 100%;
-  display: inline-block;
   font-size: 15px;
   margin-bottom: 0;
+}
+body .container .card-container .effect-options .column .input-group small, body .container .card-container .effect-options .column .input-group .fa-arrows-up-down {
+  font-size: 9px;
+  color: #F9DC5C;
+  margin: 6px 0 0 8px !important;
+  cursor: help;
 }
 body .container .card-container .effect-options .column .input-group input::-webkit-outer-spin-button, body .container .card-container .effect-options .column .input-group input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -114,25 +120,20 @@ body .container .card-container .effect-options .column .input-group input[type=
   margin: 0 !important;
   border-radius: 5px !important;
 }
-body .container .card-container .effect-options .column .input-group span {
-  width: -moz-fit-content;
-  width: fit-content;
-  font-size: 12px;
-  line-height: 2;
-  margin-left: 5px !important;
+body .container .card-container .effect-options .column .input-group .input-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
 }
 body .container .card-container .effect-options .column .input-group .form-range {
-  width: 70%;
+  flex: 1;
   height: 25px;
   cursor: pointer;
-  margin-right: 5px !important;
 }
 body .container .card-container .effect-options .column .input-group input[type=color] {
   width: 50px;
   height: 25px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   border: 0;
   margin-top: 5px;
   background: transparent;
@@ -144,16 +145,48 @@ body .container .card-container .effect-options .column .input-group input[type=
 }
 body .container .card-container .effect-options .column .input-group input[type=color]::-webkit-color-swatch {
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #011936;
 }
 body .container .card-container .effect-options .column .input-group input[type=color]::-moz-color-swatch {
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #011936;
+}
+body .container .card-container .effect-options .column .input-group span {
+  font-size: 10px;
+  line-height: 2;
+}
+body .container .card-container .effect-options .column .bg-value {
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+body .container .card-container .effect-options .column .bg-value label {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-right: 10px;
+  margin-top: 3px;
+}
+body .container .card-container .effect-options .column .bs {
+  flex-wrap: wrap;
+  height: 52.5px;
+}
+body .container .card-container .effect-options .column .bs label {
+  margin-right: 0;
+  margin-bottom: 5px;
+}
+body .container .card-container .effect-options .column .bs .shadow-values {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+body .container .card-container .effect-options .column .bs .shadow-values i {
+  margin: 0 !important;
 }
 body .container .card-container .reset-container {
   background-color: #ED254E;
   border: 2px solid #011936;
-  border-top: 0;
+  border-top-style: dotted;
   border-radius: 0 0 5px 5px;
   padding: 5px;
 }
@@ -165,23 +198,27 @@ body .container .card-container .reset-container .reset-btn {
 body .container .card-container .reset-container .reset-btn:hover {
   background-color: #000;
 }
+body .container .card-container .reset-container .reset-btn i {
+  font-size: 10px;
+}
 body .container .card-container .effect-preview {
   position: relative;
   z-index: 10;
-  margin: 15px 0;
+  margin: 10px 0;
 }
 body .container .card-container .effect-preview span {
   position: absolute;
-  font-size: 50px;
-  letter-spacing: 3px;
+  font-size: 40px;
+  letter-spacing: 1px;
   color: #011936;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  opacity: 0.5;
 }
 body .container .card-container .effect-preview .preview {
-  width: 80%;
-  height: 135px;
+  width: 115px;
+  height: 115px;
   position: relative;
   background-color: #F9DC5C;
   border-radius: 5px;
@@ -195,7 +232,7 @@ body .container .card-container .effect-code .form-floating {
   width: 100%;
 }
 body .container .card-container .effect-code .form-floating textarea {
-  height: 120px;
+  height: 130px;
   border: 2px solid #011936;
   border-radius: 5px;
   cursor: copy;

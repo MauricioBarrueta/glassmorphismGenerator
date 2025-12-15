@@ -1,5 +1,9 @@
-const blurRange = document.getElementById('blurRange'), blurValue = document.getElementById('blurVal'), outlineRange = document.getElementById('outlineRange'), outlineValue = document.getElementById('outlineVal'),
-    opacityRange = document.getElementById('opacityRange'), opacityValue = document.getElementById('opacityVal'), bgColor = document.getElementById('bgColor')
+const blurRange = document.getElementById('blurRange'), blurValue = document.getElementById('blurVal'), borderRange = document.getElementById('outlineRange'), borderValue = document.getElementById('outlineVal'),
+    opacityRange = document.getElementById('opacityRange'), opacityValue = document.getElementById('opacityVal'), radiusRange = document.getElementById('radiusRange'), radiusValue = document.getElementById('radiusVal'),
+    bgColor = document.getElementById('bgColor'), borderColor = document.getElementById('borderColor')
+
+const offsetX = document.getElementById('hShadow'), offsetY = document.getElementById('vShadow'), blurRadius = document.getElementById('bShadow'), spreadRadius = document.getElementById('sShadow'), bsColor = document.getElementById('dsColor'), opacityShadow = document.getElementById('oShadow')
+
 const effectPreview = document.querySelector('.preview'), effectOptions = document.querySelectorAll('.effect-options input'), effectCssCode = document.getElementById('css-code')
 
 window.onload = () => {
@@ -10,17 +14,36 @@ window.onload = () => {
 /* Se llama a la función cada que el valor de los input tipo 'range' y 'color' cambian */
 effectOptions.forEach(element => { element.addEventListener('input', () => { generateEffect() }) });
 bgColor.addEventListener('change', () => { generateEffect() })
+borderColor.addEventListener('change', () => { generateEffect() })
 
 /* Genera el efecto y el código CSS */
 const generateEffect = () => {
-    let blurCode = `${blurRange.value != 0 ? ` blur(${blurRange.value}px)` : ''}`
-    let borderCode = `${outlineRange.value != 0 ? `${outlineRange.value}px solid ${bgColor.value}` : '' }`
+    let blurCode = `${blurRange.value != 0 ? `blur(${blurRange.value}px)` : ''}`
+    let borderCode = `${borderRange.value != 0 ? `${borderRange.value}px solid ${borderColor.value.toUpperCase()}` : '' }`
     let bgColorCode = hexColorToRgba(bgColor.value, opacityRange.value)
+    let radiusCode = `${radiusRange.value != 0 ? `${radiusRange.value}%` : ''}`
+    let bsCode = ( offsetX.value != 0 || offsetY.value != 0 || blurRadius.value != 0 || spreadRadius.value != 0 ) 
+        ? `${offsetX.value}px ${offsetY.value}px ${blurRadius.value}px ${spreadRadius.value}px ${hexColorToRgba(bsColor.value, opacityShadow.value)}` : ''
 
     effectPreview.style.backdropFilter = blurCode
     effectPreview.style.background = bgColorCode
-    effectPreview.style.outline = borderCode
-    effectCssCode.textContent = `${blurCode != '' ? (`backdrop-filter: ${blurCode}; -webkit-backdrop-filter: ${blurCode};`) : ''}${borderCode != '' ? `\noutline: ${borderCode};` : ''}\nbackground-color: ${bgColorCode};\n\nbox-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 1); /* opcional */`
+    effectPreview.style.border = borderCode
+    effectPreview.style.borderRadius = radiusCode
+
+    effectPreview.style.boxShadow = bsCode
+
+    const lines = []
+
+    if (blurCode) lines.push(`backdrop-filter: ${blurCode}; -webkit-backdrop-filter: ${blurCode};`)
+    lines.push(`background-color: ${bgColorCode};`) 
+    
+    if (borderCode) lines.push(`border: ${borderCode};`)    
+    
+    if(radiusCode) lines.push(`\nborder-radius: ${radiusCode}; //opcional`)    
+
+    if(bsCode) lines.push(`box-shadow: ${offsetX.value}px ${offsetY.value}px ${blurRadius.value}px ${spreadRadius.value}px ${hexColorToRgba(bsColor.value, opacityShadow.value)}; // opcional`) //! aqui van los valores de los input de box-shadow y van en 1 if
+
+    effectCssCode.textContent = lines.join('\n')
 }
 
 /* Transforma el color hexadecimal al modelo RGB */
@@ -37,8 +60,12 @@ copyCodeBtn.addEventListener('click', () => {
 })
 
 const resetValues = () => {
-    blurRange.value = blurValue.value = 5
-    outlineRange.value = outlineValue.value = 0
-    opacityRange.value = opacityValue.value = 0.35
-    bgColor.value = '#F9DC5C'
+    blurRange.value = blurValue.value = radiusRange.value = radiusValue.value = 5
+    borderRange.value = borderValue.value = offsetX.value = offsetY.value = spreadRadius.value = 0
+    blurRadius.value = 10
+    opacityShadow.value = 1
+    opacityRange.value = opacityValue.value = 0.35    
+    bgColor.value = borderColor.value = '#F9DC5C'
+    bsColor.value = "#000"
+    
 }
